@@ -1,4 +1,4 @@
-from options import attach_link, finish_checkitem
+from modules.options import attach_link, finish_checkitem
 
 def main():
     print('Welcome to Checklist Link Attacher :))')
