@@ -14,10 +14,6 @@ def main():
         if (answer.upper() != "Y"):
             finished = True
 
-def finish_checkitem():
-    print('TODO')
-
-
 def show_menu():
     print('1. Attach a link on a checklist')
     print('2. Finish a readed checkitem')
