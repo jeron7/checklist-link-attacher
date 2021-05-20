@@ -1,4 +1,4 @@
-from ..api_requests import board, card, checkitem, checklist, link, lists
+from ..api_requests import board, card, checkitem, checklist, links, lists
 
 def run():
     selected_board = select_board()
@@ -9,7 +9,7 @@ def run():
 
 def append_link_to_checklist(checklist):
     link = input('\n> Type the link that you want to append: ')
-    title = get_link_title(link)
+    title = links.get_link_title(link)
     checkitem_name = "[{}]({})".format(title, link)
     response = checkitem.create_checkitem(checklist, checkitem_name)
     if (response.status_code == 200):

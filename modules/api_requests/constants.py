@@ -5,7 +5,7 @@ OAUTH_TOKEN = 'OAUTH_TOKEN'
 # TRELLO API ENDPOINTS
 TRELLO_API_URL = 'https://api.trello.com/1/'
 CHECKITEMS_CHECKLIST_ENDPOINT = TRELLO_API_URL + 'checklists/{}/checkItems'
-CHECKITEM_CHECKLIST_CARD_ENDPOINT = TRELLO_API_URL + 'cards/{}/checklist/{}/checkItem/{}'
+CHECKITEM_CARD_ENDPOINT = TRELLO_API_URL + 'cards/{}/checkItem/{}'
 CHECKLISTS_CARD_ENDPOINT = TRELLO_API_URL + 'cards/{}/checklists'
 CARD_LISTS_ENDPOINT = TRELLO_API_URL + 'lists/{}/cards'
 LISTS_BOARD_ENDPOINT = TRELLO_API_URL + 'boards/{}/lists'
