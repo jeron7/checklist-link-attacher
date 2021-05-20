@@ -5,10 +5,13 @@ def main():
     finished = False;
     while (not finished):
         option = show_menu()
-        if (option == 1):
-            attach_link.run()
-        else:
-            finish_checkitem.run()
+        try:
+            if (option == 1):
+                attach_link.run()
+            else:
+                finish_checkitem.run()
+        except Exception as error:
+            print('\nOPS!! An error occured: {}\n'.format(error))
 
         answer = input("Do you want do another thing? [Y/n]: ")
         if (answer.upper() != "Y"):

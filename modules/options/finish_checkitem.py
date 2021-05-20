@@ -13,7 +13,7 @@ def run():
     selected_card = select_card_from_list(selected_list)
     selected_checklist = select_checklist_from_card(selected_card)
     selected_checkitem = select_checkitem(selected_checklist)
-    finish_checkitem(selected_checkitem, selected_card)
+    finish_checkitem(selected_checkitem, selected_card)    
 
 def finish_checkitem(checki, card):
     response = checkitem.finish_checkitem(card, checki)
@@ -27,16 +27,22 @@ def select_checkitem(checklist):
     checkitems = checklist['checkItems']
     display_checkitems(checkitems)
     choice = int(input('\n> Select a checkitem above: '))
-    return checkitems[choice - 1]
+    return checkitems[-choice]
     
 def display_checkitems(checkitems):
     number = 1;
+    checkitems.reverse()
     print('\nUnfinished checkitems from selected checklist:')
-    for checki in checkitems:
+    for i in range(len(checkitems) - 1, -1, -1):
+        checki = checkitems[i]
         if (isIncomplete(checki)):
             name = checki[CHECKITEM_NAME].split(MARKDOWN_LINK_NAME_ENDS)[0].strip(MARKDOWN_LINK_NAME_STARTS)
             print ("{} - {}".format(number, name))
             number += 1
+        else:
+            checkitems.pop(i)
+    if (len(checkitems) == 0):
+        raise Exception('This checklist was none unfinished checkitems :(')
 
 def isIncomplete(checkitem):
     return checkitem[CHECKITEM_STATE] == INCOMPLETE_CHECKITEM

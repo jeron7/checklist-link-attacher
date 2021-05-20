@@ -22,7 +22,7 @@ def select_card_from_list(list):
     open_cards = card.get_open_cards_from_list(list)
     display_open_cards(open_cards)
     choice = int(input('\n> Select a card above: '))
-    return open_cards[choice - 1]
+    return open_cards[-choice]
     
 def select_checklist_from_card(card):
     open_checklists = checklist.get_open_checklists_from_card(card)
@@ -44,10 +44,17 @@ def select_board():
 
 def display_open_cards(cards):
     number = 1;
-    print('\nOpen cards from selected list:')
-    for card in cards:
-        print ("{} - {}".format(number, card['name']))
-        number += 1
+    cards.reverse()
+    print('\nOpen cards with checklists from selected list:')
+    for i in range(len(cards) - 1, -1, -1):
+        card = cards[i]
+        if (len(card['idChecklists']) > 0):
+            print ("{} - {}".format(number, card['name']))
+            number += 1
+        else:
+            cards.pop(i)
+    if (len(cards) == 0):
+        raise Exception('This list was none card with checklists :(')
 
 def display_open_lists(lists):
     number = 1;
