@@ -1,2 +1,2 @@
-__all__ = ['authorization', 'board', 'checkitem', 'checklist', 'card', 'links', 'lists', 'constants']
+__all__ = ['authorization', 'board', 'checkitems', 'checklist', 'cards', 'links', 'lists', 'constants', 'actions']
 from . import *

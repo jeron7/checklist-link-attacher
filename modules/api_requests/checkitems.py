@@ -11,10 +11,9 @@ def create_checkitem(checklist, checkitem_name):
     response = requests.post(url, headers=headers, params=params)
     return response;
 
-def finish_checkitem(card, checkitem):
+def delete_checkitem(card, checkitem):
     checkitem_id = checkitem['id']
     card_id = card['id']
-    params = {'state': 'complete'}
     url = CHECKITEM_CARD_ENDPOINT.format(card_id, checkitem_id)
-    response = requests.put(url, headers=headers, params=params)
+    response = requests.delete(url, headers=headers)
     return response;
